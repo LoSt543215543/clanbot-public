@@ -1,0 +1,25 @@
+{
+  "name": "clanbot",
+  "version": "1.0.17",
+  "description": "Discord Bot for OpenFront.io clans with clan stats, FFA tournament points, custom currency, and automated rank roles",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/index.js",
+    "deploy-commands": "node dist/deploy-commands.js",
+    "build": "node -e \"console.log(\\\"Build completed (pre-compiled distribution).\\\")\""
+  },
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "dotenv": "^16.4.7",
+    "puppeteer": "^25.13.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "zod": "^3.24.2"
+  },
+  "allowScripts": {
+    "puppeteer@25.13.0": true,
+    "fsevents@2.3.3": true,
+    "esbuild@0.28.2": true
+  }
+}
