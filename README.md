@@ -57,3 +57,9 @@ Once the bot connects to your Discord server:
    Update or refresh your OpenFront `refreshToken` cookie at any time.
 5. **/update**  
    Whenever a new version of ClanBot is released, run `/update` directly in Discord to automatically pull the latest release and update your bot.
+
+---
+
+## Changelog
+
+For a full list of changes across all versions, see [CHANGELOG.md](./CHANGELOG.md).
