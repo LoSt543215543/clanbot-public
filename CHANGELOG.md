@@ -4,6 +4,16 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.19] - 2026-10-17
+### 🔗 Pre-Linking Member Support & Redundant Link Optimization
+- **Self-Linking for Pre-Existing Members**:
+  - Adjusted the redundant link prevention checks across `/link`, `/application panel`, and `executeLinkFlow` to specifically test `hasMemberRole && isAlreadyLinked`.
+  - Server members who obtained the "Clan Member" role prior to the introduction of the linking system or through manual role assignment can now link their OpenFront account without encountering a roadblock.
+  - Users who are both actively linked in the database and holding the member role remain gracefully blocked from redundant re-linking.
+  - Full staff override functionality (`/link public_id:<id> user:<target>`) is preserved for admins and reviewers.
+
+---
+
 ## [v1.0.18] - 2026-10-17
 ### 🔒 Ticket System Hardening & Link Flow Restrictions
 - **Mandatory Reason Modal on Ticket Close**:
