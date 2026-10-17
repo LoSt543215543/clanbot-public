@@ -4,6 +4,22 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.21] - 2026-10-17
+### ⌨️ Prefix System Refinements & Dismiss Button Optimization
+- **Default Prefix Changed to `!cb`**:
+  - Changed default command prefix from `!` to `!cb` (e.g. `!cb help`, `!cb stats`, `!cb link`) to avoid collisions with other popular Discord bots.
+  - Supports both `!cb <command>` and `!cb<command>` formats, as well as bot @mentions (`@ClanBot <command>`).
+- **Dedicated `/prefix` Command**:
+  - Added `/prefix [new_prefix]` (and `!cb prefix [new_prefix]`) allowing administrators to quickly inspect or update the server prefix directly from chat.
+- **Config Window Deduplication**:
+  - Excluded the dismiss button from `/config` / `!cb config` menus, eliminating the redundant button alongside the existing `❌ Close Window` control.
+- **Universal Dismiss Button Support**:
+  - Ensured all other prefix command replies (across initial replies, deferred edits, followups, and errors) include the `🗑️ Dismiss` button so callers can easily clean up bot responses.
+- **Visual Prefix Button in `/config`**:
+  - Added a dedicated prefix management button (`⌨️ Prefix: <prefix>`) directly on the main settings dashboard.
+
+---
+
 ## [v1.0.20] - 2026-10-17
 ### ⚡ Instant Dual-Dispatch Command System & Ephemeral Help
 - **Instant Prefix Command Support (`!command` & `@ClanBot command`)**:
