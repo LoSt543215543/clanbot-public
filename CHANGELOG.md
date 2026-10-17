@@ -4,6 +4,20 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.20] - 2026-10-17
+### ⚡ Instant Dual-Dispatch Command System & Ephemeral Help
+- **Instant Prefix Command Support (`!command` & `@ClanBot command`)**:
+  - Added support for prefix-based commands running alongside Discord slash commands.
+  - Bypasses Discord's client caching and global command propagation delays, executing text commands instantly in chat upon deployment.
+  - Supports default prefix `!`, bot @mentions (`@ClanBot command`), and server-customizable prefixes via `/config`.
+  - Built an internal `MessageCommandAdapter` that seamlessly translates Discord text messages to the application command runner with positional and subcommand parsing.
+  - Added interactive "🗑️ Dismiss" buttons on prefix command replies that mimic ephemeral behavior.
+- **New Ephemeral `/help` & `!help` Command**:
+  - Added a categorized command directory covering Account Linking, Stats & Ranks, Support Tickets, Clan Economy & Raffles, Events & Competitions, and Administration.
+  - Strictly marked **ephemeral** on Discord slash commands so the help directory is visible only to the member who executed it.
+
+---
+
 ## [v1.0.19] - 2026-10-17
 ### 🔗 Pre-Linking Member Support & Redundant Link Optimization
 - **Self-Linking for Pre-Existing Members**:
