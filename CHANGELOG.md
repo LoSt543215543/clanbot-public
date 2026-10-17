@@ -4,6 +4,17 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.22] - 2026-10-17
+### 📋 Inline Update Changelogs & File Integrity
+- **Changelog Display on Update Completion**:
+  - The `/update` (and `!cb update`) command now retrieves and displays the release notes and changelog bullets directly in the final confirmation message before the bot process restarts.
+  - Formatted cleanly as a `📋 What's New in v<version>:` block, safely truncated to 1,000 characters to prevent Discord message length overflow.
+- **Auto-Updater Changelog Preservation**:
+  - Enhanced the file replacement step in `applyUpdate()` to automatically copy and update `CHANGELOG.md` alongside `tsconfig.json` and `dist/`.
+  - Added `getChangelogForVersion(version)` to extract release-specific sections directly from `CHANGELOG.md` using regex parsing as an offline or fallback source.
+
+---
+
 ## [v1.0.21] - 2026-10-17
 ### ⌨️ Prefix System Refinements & Dismiss Button Optimization
 - **Default Prefix Changed to `!cb`**:
