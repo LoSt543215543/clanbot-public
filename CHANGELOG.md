@@ -4,6 +4,17 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.30] - 2026-10-18
+### 🎟️ Cancelled Raffle Coin Refunds & Free Ticket Protection
+- **Purchased Ticket Refunds on Cancel**:
+  - In `/raffle clear` (and the Raffle settings panel Cancel button), cancelling an active raffle now automatically refunds all coins spent buying extra tickets directly back to members' balances.
+  - Accurately tracks coins spent per user and computes precise refunds across single or multi-batch ticket purchases.
+- **Free Ticket Protection**:
+  - Free rank tickets (claimed from clan tiers) are strictly discarded upon raffle cancellation and are never converted into currency or refunded as coins.
+  - Reports summary of total coins refunded and participant counts upon cancellation.
+
+---
+
 ## [v1.0.29] - 2026-10-18
 ### ⚔️ Strict Free For All (FFA) Tournament Filter
 - **Teams & Co-op Matches Elimination**:
