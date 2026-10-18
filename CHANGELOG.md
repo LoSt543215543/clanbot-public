@@ -4,6 +4,22 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.24] - 2026-10-17
+### 🏆 Tournament Scoring & Competition Leaderboard Fixes
+- **Accurate OpenFront Games Tracking**:
+  - Fixed competition scoring endpoint resolution: transitioned from deprecated/non-existent `/history` endpoint to the live `/public/player/:publicId/games` endpoint with cursor-based pagination.
+  - Implemented exact game attribute parsing matching OpenFront's API schema (`start`, `totalPlayers`, `result === "victory"`).
+  - Added robust match filtering: automatically filters out disconnected/incomplete games (`result === "incomplete"`), singleplayer bot games (`type === "Singleplayer"`), and games with $\le 1$ player.
+  - Introduced smart 60-second in-memory games caching with historical depth tracking to maximize performance while minimizing API requests.
+- **Enhanced Leaderboard Display & Member Tracking**:
+  - Cross-references registered Discord participants and linked clan members against in-game roster snapshots so active tournament entrants are never omitted.
+  - Refined leaderboard ranking: sorts strictly by tournament points descending, victories descending, and games played descending.
+  - Formats active participants cleanly on the leaderboard, hiding clutter when members haven't played yet and displaying helpful fallback status messages.
+- **Granular `/event` Command Access**:
+  - Allowed all clan members to run `/event` to view current tournament schedule and registration status, while preserving admin-only restrictions on tournament modification options (`start_date`, `end_date`, `duration_minutes`, `clear`, etc.).
+
+---
+
 ## [v1.0.23] - 2026-10-17
 ### 🔒 Command Access Control & Permission Verification Fixes
 - **Resilient Member Permissions & Role Evaluation**:
