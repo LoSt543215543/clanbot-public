@@ -4,6 +4,17 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.29] - 2026-10-18
+### ⚔️ Strict Free For All (FFA) Tournament Filter
+- **Teams & Co-op Matches Elimination**:
+  - Enforced strict Free For All (`g.mode === "Free For All"`) filtering in `getMemberCompetitionPoints()`.
+  - Automatically filters out all Teams matches, Duos, Trios, Squads, Clan Wars, and any matches with non-empty `playerTeams` structures.
+  - Ensures tournament and event scoring exclusively counts solo Free For All public matches.
+- **Updated Rules & Embeds**:
+  - Updated `/event` and `/leaderboard` scoring rules to state that matches must be official Public FFA matchmaking only.
+
+---
+
 ## [v1.0.28] - 2026-10-18
 ### 🛡️ Instant Linking for Approved Members & Permissions UI Fix
 - **Instant Linking for Existing Members**:
