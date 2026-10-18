@@ -4,6 +4,17 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.28] - 2026-10-18
+### 🛡️ Instant Linking for Approved Members & Permissions UI Fix
+- **Instant Linking for Existing Members**:
+  - Verified that users who already hold the server's approved clan member role (`memberRoleId`) are recognized clan members; running `/link` will now proceed directly with linking their account, syncing clan roles, and updating stats without opening an unneeded review or application ticket.
+  - Automatically resolves in-game clan join requests via headless client if an invite-only request is pending.
+- **Command Access Permissions UI & Button Color Fix**:
+  - Resolved greedy regex parsing in `cfg_toggle_` button interaction handlers that mistakenly captured page suffixes (e.g. `leaderboard_p1` instead of `leaderboard`), preventing button labels and green/red colors from toggling.
+  - Added automatic database sanitization to remove any legacy corrupted keys with page suffixes (`_p\d+`), ensuring the permission switches update dynamically in real time.
+
+---
+
 ## [v1.0.27] - 2026-10-17
 ### 🤖 Humans vs Nations (HvN) Match Filtering
 - **Strict Exclusion of Humans vs Nations Bot Co-op**:
