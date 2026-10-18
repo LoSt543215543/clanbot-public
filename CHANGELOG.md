@@ -4,6 +4,17 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.27] - 2026-10-17
+### 🤖 Humans vs Nations (HvN) Match Filtering
+- **Strict Exclusion of Humans vs Nations Bot Co-op**:
+  - Identified that OpenFront categorizes "Humans vs Nations" matches as `type: "Public"` with `playerTeams: "Humans Vs Nations"`, allowing bot co-op matches to slip past the public filter.
+  - Added explicit match filtering to automatically reject any match where `playerTeams` or `mode` includes "Humans vs Nations" (or HvN / bot variants).
+  - Ensures event scoring strictly counts human PvP matchmaking games and prevents bot-farming of tournament points.
+- **Updated Event & Leaderboard Descriptions**:
+  - Updated `/event` and `/leaderboard` rule descriptions to state that Humans vs Nations matches are excluded from tournament scoring.
+
+---
+
 ## [v1.0.26] - 2026-10-17
 ### 🚫 Strict Exclusion of Custom Games & Private Lobbies
 - **Custom Game & Private Match Elimination**:
