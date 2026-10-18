@@ -4,6 +4,17 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.25] - 2026-10-17
+### 🏷️ In-Game Clan Tag Requirement for Event Scoring
+- **Mandatory Clan Tag Filtering**:
+  - Enforced in-game clan tag verification on competition match processing: matches are only counted for tournament points if played under the server's configured clan tag (`[clanTag]`).
+  - Matches played under other clan tags, without a clan tag, or while unaffiliated in-game are automatically excluded from event rankings.
+- **Enhanced Event & Leaderboard Messaging**:
+  - Displayed explicit `🏷️ Clan Tag Requirement` fields in `/event` creation and active status embeds.
+  - Added clan tag requirement reminders to the `/leaderboard` scoring description and upcoming tournament embeds.
+
+---
+
 ## [v1.0.24] - 2026-10-17
 ### 🏆 Tournament Scoring & Competition Leaderboard Fixes
 - **Accurate OpenFront Games Tracking**:
