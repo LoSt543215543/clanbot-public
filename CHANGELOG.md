@@ -4,6 +4,20 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.23] - 2026-10-17
+### 🔒 Command Access Control & Permission Verification Fixes
+- **Resilient Member Permissions & Role Evaluation**:
+  - Fixed an uncaught TypeError in `isGuildAdmin` and `canRunCommand` when handling Discord button interactions from uncached or API members (`member.guild.ownerId`, `member.permissions.has`, and `member.roles.cache.has`).
+  - Added multi-format resolution supporting `GuildMember` instances, `APIInteractionGuildMember` objects, raw string/bigint permission bitfields, and direct role arrays.
+- **Fixed Command Access Toggle Buttons in `/config`**:
+  - Fixed button interaction routing in the Command Access Control dashboard so clicking command access toggle buttons cleanly updates command permissions in real time.
+  - Optimized the layout of command buttons using 5 buttons per row (reducing rows from 5 to 3), preventing action row overflows and button cutoff.
+- **Dynamic Permission Integration Across All Commands**:
+  - Replaced hardcoded `isGuildAdmin` checks with dynamic `canRunCommand` checks across `setup`, `update`, `link`, `unlink`, and `reapprove`.
+  - Removed hardcoded `setDefaultMemberPermissions` from `cfg` so custom admin roles configured in settings have full access.
+
+---
+
 ## [v1.0.22] - 2026-10-17
 ### 📋 Inline Update Changelogs & File Integrity
 - **Changelog Display on Update Completion**:
