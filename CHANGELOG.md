@@ -4,6 +4,17 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.26] - 2026-10-17
+### 🚫 Strict Exclusion of Custom Games & Private Lobbies
+- **Custom Game & Private Match Elimination**:
+  - Identified that OpenFront flags player-created custom lobbies and password-protected games as `type: "Private"`, which were previously slipping through because only `Singleplayer` was filtered out.
+  - Enforced strict `g.type === "Public"` filtering in `getMemberCompetitionPoints()`: all custom games (`type: "Private"` or any custom lobby flags) are now strictly rejected and cannot award event points or victories.
+- **Transparent Match Eligibility Indicators**:
+  - Added `🌐 Match Eligibility` to `/event` set and status embeds explicitly confirming that only official Public Matchmaking games count.
+  - Updated the `/leaderboard` live and queued event descriptions to indicate `Public matches only (Custom/Private excluded)`.
+
+---
+
 ## [v1.0.25] - 2026-10-17
 ### 🏷️ In-Game Clan Tag Requirement for Event Scoring
 - **Mandatory Clan Tag Filtering**:
