@@ -4,6 +4,27 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.31] - 2026-10-18
+### 💸 Peer-to-Peer /pay & 🛍️ Customizable Clan Shop
+- **Discord-Tied `/pay` Command**:
+  - Implemented `/pay user:@mention amount:number` allowing clan members to transfer coins directly out of their balance.
+  - Payments are tied directly to Discord accounts (`discordId`), eliminating any requirement for recipients to have an OpenFront public ID or linked account before receiving or holding currency.
+  - Added robust validation: blocks self-payments, Discord bot payments, non-positive amounts, and insufficient balances.
+  - Emits a clean transaction receipt embed showing sender, recipient, amount transferred, and real-time updated balances.
+- **Interactive Clan Shop (`/shop`)**:
+  - Implemented interactive `/shop` command displaying active clan inventory with item names, coin costs, descriptions, and role rewards.
+  - Interactive `StringSelectMenu` lets members browse and purchase items with single-click ease.
+  - Automatically awards configured Discord roles to the purchaser upon checkout with graceful error handling if role hierarchy restrictions apply.
+- **Clan Shop Customization in `/config` Dashboard**:
+  - Added `🛍️ Clan Shop` button to the `/config` main control menu.
+  - Full inventory management sub-panel: view all items with enabled/disabled badges, item IDs, role bindings, and costs.
+  - Interactive "➕ Add Item" modal with inputs for item name, coin cost, description, and optional Discord role ID to auto-assign.
+  - Interactive selection menus to toggle active status or delete items with real-time UI refresh.
+- **Command Access & Default Permissions**:
+  - Integrated `pay` and `shop` into `ALL_BOT_COMMANDS` and `DEFAULT_ADMIN_COMMANDS` (unrestricted to everyone by default, customizable via `/config`).
+
+---
+
 ## [v1.0.30] - 2026-10-18
 ### 🎟️ Cancelled Raffle Coin Refunds & Free Ticket Protection
 - **Purchased Ticket Refunds on Cancel**:

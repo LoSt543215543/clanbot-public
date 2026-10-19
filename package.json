@@ -1,6 +1,6 @@
 {
   "name": "clanbot",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "Discord Bot for OpenFront.io clans with clan stats, FFA tournament points, custom currency, and automated rank roles",
   "main": "dist/index.js",
   "type": "module",
