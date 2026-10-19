@@ -4,6 +4,20 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.32] - 2026-10-19
+### 🛡️ Competition Anti-Cheat: Active Gameplay & Anti-AFK Verification
+- **Anti-AFK & Zero-Action Game Disqualification**:
+  - Implemented `verifyGameParticipation()` in `OpenFrontApi` to inspect game telemetry and player statistics.
+  - Automatically detects and disqualifies defeat games where a player joined a lobby but took no gameplay actions (e.g., joining an 80+ player game, never spawning or remaining idle, and collecting participation points).
+  - Matches where a player sent 0 attack troops, conquered 0 tiles, achieved 0 kills, and never expanded beyond starting territory (<= 52 tiles) or died in early ticks without attacking are disqualified from awarding tournament points and counting towards games played.
+  - Legitimate defeats where players actively attacked, expanded, conquered territory, or fought are preserved and scored normally.
+- **In-Memory Anti-Cheat Caching**:
+  - Added `gameParticipationCache` to cache verified game participation results by `gameId:publicId`, ensuring zero redundant network fetches during rapid leaderboard refreshes.
+- **Leaderboard Telemetry Update**:
+  - Updated `/competition` and `/leaderboard` rules description to clearly state: `Active gameplay required (AFK/0-attack excluded)`.
+
+---
+
 ## [v1.0.31] - 2026-10-18
 ### 💸 Peer-to-Peer /pay & 🛍️ Customizable Clan Shop
 - **Discord-Tied `/pay` Command**:
