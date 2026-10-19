@@ -4,6 +4,26 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.33] - 2026-10-19
+### ⚙️ Configurable Anti-Cheat: Minimum Tiles, Survival Time & Troop Attack Thresholds
+- **Customizable Anti-Cheat Requirements**:
+  - Added configurable anti-cheat parameters to `TournamentConfig`:
+    - `minTiles`: Minimum peak tiles required before defeat qualifies (default: 100 tiles; initial spawn gives ~52 tiles).
+    - `minSurvivalSeconds`: Minimum match survival time required before defeat qualifies (default: 60 seconds).
+    - `minAttacks`: Minimum offensive attack troops sent (default: 1 troop).
+  - Matches where the player achieved territory conquests or player kills are recognized as direct combat proof and always qualify.
+- **Settings Dashboard Integration (`/config`)**:
+  - Added dedicated **`🛡️ Anti-Cheat`** interactive button in Row 4 of the main `/config` settings dashboard.
+  - Added dedicated interactive modal `cfg_modal_anticheat` allowing server administrators to customize minimum peak tiles, minimum survival time, and minimum attack troops directly.
+  - Integrated 5th input into the existing `🏆 Tourney Scoring` modal (`cfg_modal_tourney`) allowing dual configuration from both entrypoints.
+  - Main settings overview embed now clearly displays active anti-cheat thresholds under `🏆 Tournament Scoring & Anti-Cheat`.
+- **Match Telemetry & Leaderboard Enhancements**:
+  - Refactored `verifyGameParticipation` to cache full match telemetry (`PlayerMatchTelemetry`) per `gameId:publicId`, ensuring instantaneous re-evaluation when threshold settings are updated.
+  - Fixed duplicate increment of `gamesPlayed` count on valid games and ensured disqualified matches do not count towards `gamesPlayed`.
+  - Updated live leaderboard scoring rules description to display active minimum tiles and survival seconds.
+
+---
+
 ## [v1.0.32] - 2026-10-19
 ### 🛡️ Competition Anti-Cheat: Active Gameplay & Anti-AFK Verification
 - **Anti-AFK & Zero-Action Game Disqualification**:
