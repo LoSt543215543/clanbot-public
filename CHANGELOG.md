@@ -4,6 +4,22 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.36] - 2026-10-19
+### ⚙️ Enhanced Parameter Parsing for Prefix Commands
+- **Named Parameter Support**:
+  - Added support for named parameters in prefix commands (`!cb pay user:@Logan amount:50`, `!cb pay user=@Logan amount=50`, `!cb pay --user @Logan --amount 50`).
+  - Supports colon, equals, and flag syntax (`param:val`, `param=val`, `--param val`, `--param=val`, `-param val`).
+  - Correctly preserves internal colons (e.g. `event_url:https://ofratings.com/events/10`).
+  - Normalizes parameter keys with kebab-case and snake_case (`start-date`, `start_date`, `startdate`).
+- **Quotes & Flag Handling**:
+  - Properly unquotes values in double quotes, single quotes, or inline quoted arguments (e.g. `name:"Fall Championship"`, `name:'Tournament'`).
+  - Handled standalone boolean flags (e.g. `!cb link-ratings --clear` or `!cb event --require_join`).
+- **Positional & Mixed Mode Compatibility**:
+  - Maintained full backwards-compatibility with positional arguments (e.g. `!cb pay @Logan 50`).
+  - Supports mixed positional and named arguments with remaining unassigned parameters mapped in order.
+
+---
+
 ## [v1.0.35] - 2026-10-19
 ### 🏷️ Command Rename: `/link-ratings`
 - Renamed the OFRatings external API integration command from `/link-stats` to `/link-ratings` (with aliases `!cb link-ratings`, `!cb linkratings`, and `!cb linkstats`).
