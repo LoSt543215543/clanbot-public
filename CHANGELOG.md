@@ -4,6 +4,14 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.35] - 2026-10-19
+### 🏷️ Command Rename: `/link-ratings`
+- Renamed the OFRatings external API integration command from `/link-stats` to `/link-ratings` (with aliases `!cb link-ratings`, `!cb linkratings`, and `!cb linkstats`).
+- Updated interactive button in `/config` dashboard Row 5 to `🔗 OFRatings / Link-Ratings`.
+- Updated slash command registrations across all guilds and global deployment.
+
+---
+
 ## [v1.0.34] - 2026-10-19
 ### 🌐 External Stats Integration (`/link-stats`) & Toggleable Scoring Engines
 - **External Stats / OFRatings Event Connection**:
