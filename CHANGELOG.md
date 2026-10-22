@@ -4,6 +4,38 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.39] - 2026-10-22
+### 🧠 Custom Discord Chat AI Model (Ping Responses)
+- **Lightweight Hybrid Conversational + Markov AI Model**:
+  - Trained on 409,835 Discord messages and 347,753 conversational pairs directly on the server (`discord_ai_model.json`, 16 MB).
+  - Combines BM25/IDF contextual dialog retrieval (`40,000` indexed conversational pairs across `18,465` vocabulary terms) with a keyword-seeded Trigram/Bigram Markov language model (`106,000` trigram states and `24,246` bigram states).
+- **Pingable AI Responses**:
+  - Mentioning/pinging the bot (or replying to the bot with ping enabled) now generates contextual responses using the trained model while preserving `@Bot <command>` support for actual bot commands.
+
+---
+
+## [v1.0.38] - 2026-10-21
+### 🏆 Live OFRatings Event Leaderboard Parsing
+- **Fixed Event vs. Global Leaderboard**:
+  - Resolved issue where `/link-ratings` previously defaulted to the worldwide Elo leaderboard (`dev.ofratings.com/api/v1/leaderboard`) rather than the active clan event.
+  - Automatically detects configured OFRatings event URLs (`ofratings.com/events/<event-slug>`) and pulls the live tournament event standings (real tournament points, event games, event wins, and event rankings).
+  - Matches the exact event scoring (e.g. 95.5 pts for TheBiff, 81.5 pts for Hau in the ART Halloween FFA Competition).
+
+---
+
+## [v1.0.37] - 2026-10-21
+### ⚡ OFRatings Official Developer API Integration (`dev.ofratings.com`)
+- **Direct dev.ofratings.com Integration**:
+  - Wired `dev.ofratings.com/api/v1` as the default official API provider for external stats.
+  - Automatically fetches the live global leaderboard from `https://dev.ofratings.com/api/v1/leaderboard?limit=10` when an API key is connected via `/link-ratings`.
+  - Parsed native OFRatings `Player` models, mapping Elo ratings to leaderboard points, rank, win counts, and rated game history.
+- **Player Profile Elo in `/stats`**:
+  - Enriched `/stats` with live OFRatings Elo, rating tier (e.g. Diamond, Platinum), and global leaderboard rank when an external API key is connected.
+- **Zero-Config Defaults**:
+  - Automatically defaults `api_url` to `dev.ofratings.com/api/v1/leaderboard?limit=10` and `event_url` to `ofratings.com/leaderboard` upon providing an API key.
+
+---
+
 ## [v1.0.36] - 2026-10-19
 ### ⚙️ Enhanced Parameter Parsing for Prefix Commands
 - **Named Parameter Support**:
