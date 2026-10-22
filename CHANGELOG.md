@@ -4,6 +4,12 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ---
 
+## [v1.0.40] - 2026-10-22
+### ✨ Chat AI Attribution Footer
+- Added subtle Discord subtext attribution (`-# researched/trained by ahbrakadabrah`) to AI ping responses.
+
+---
+
 ## [v1.0.39] - 2026-10-22
 ### 🧠 Custom Discord Chat AI Model (Ping Responses)
 - **Lightweight Hybrid Conversational + Markov AI Model**:
