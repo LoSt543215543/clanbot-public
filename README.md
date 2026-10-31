@@ -1,6 +1,6 @@
-# ClanBot (Public Release)
+# ArtBot (Public Release)
 
-Official distribution build of ClanBot — the automated Discord Bot for OpenFront.io clans featuring FFA tracking, automated rank roles, live leaderboards, and ticket applications.
+Official distribution build of ArtBot — the automated Discord Bot for OpenFront.io clans featuring FFA tracking, automated rank roles, live leaderboards, and ticket applications.
 
 ## Requirements
 - **Node.js 20+** installed on your server/machine
@@ -13,8 +13,8 @@ Official distribution build of ClanBot — the automated Discord Bot for OpenFro
 ### 1. Installation
 Clone the repository:
 ```bash
-git clone https://github.com/LoSt543215543/clanbot-public.git
-cd clanbot-public
+git clone https://github.com/LoSt543215543/artbot-public.git
+cd artbot-public
 npm install --omit=dev
 ```
 
@@ -39,7 +39,7 @@ npm run deploy-commands
 ```bash
 npm start
 ```
-*(Or use a process manager like PM2: `pm2 start dist/index.js --name clanbot`)*
+*(Or use a process manager like PM2: `pm2 start dist/index.js --name artbot`)*
 
 ---
 
@@ -56,7 +56,7 @@ Once the bot connects to your Discord server:
 4. **/settoken**  
    Update or refresh your OpenFront `refreshToken` cookie at any time.
 5. **/update**  
-   Whenever a new version of ClanBot is released, run `/update` directly in Discord to automatically pull the latest release and update your bot.
+   Whenever a new version of ArtBot is released, run `/update` directly in Discord to automatically pull the latest release and update your bot.
 
 ---
 

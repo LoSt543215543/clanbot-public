@@ -1,6 +1,6 @@
-# 📋 ClanBot Changelog
+# 📋 ArtBot Changelog
 
-All notable changes, new features, and bug fixes for ClanBot across every release are documented here.
+All notable changes, new features, and bug fixes for ArtBot across every release are documented here.
 
 ---
 
@@ -74,9 +74,9 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
   - Built `fetchExternalEventStats()` in `src/services/external-stats.ts` designed to consume the JSON output shape (event link + current top 10 standings) while gracefully serving a placeholder view when standing by for the live feed.
 - **Toggleable Scoring System**:
   - Made the tournament scoring engine instantly toggleable between:
-    - **`Native ClanBot`**: Built-in 3-tier FFA points, win multipliers, active telemetry anti-cheat, and `/event` time windows.
+    - **`Native ArtBot`**: Built-in 3-tier FFA points, win multipliers, active telemetry anti-cheat, and `/event` time windows.
     - **`External OFRatings`**: Event management link and live/placeholder Top 10 rankings feed.
-  - Added one-click **`🌐 Scoring: OFRatings (Ext)` / `🏆 Scoring: Native (ClanBot)`** toggle button and **`🔗 OFRatings / Link-Stats`** configuration button in Row 5 of the `/config` interactive dashboard.
+  - Added one-click **`🌐 Scoring: OFRatings (Ext)` / `🏆 Scoring: Native (ArtBot)`** toggle button and **`🔗 OFRatings / Link-Stats`** configuration button in Row 5 of the `/config` interactive dashboard.
   - Updated `/leaderboard` and `/competition` to dynamically switch display formats based on the selected scoring system.
 
 ---
@@ -247,7 +247,7 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 ### ⌨️ Prefix System Refinements & Dismiss Button Optimization
 - **Default Prefix Changed to `!cb`**:
   - Changed default command prefix from `!` to `!cb` (e.g. `!cb help`, `!cb stats`, `!cb link`) to avoid collisions with other popular Discord bots.
-  - Supports both `!cb <command>` and `!cb<command>` formats, as well as bot @mentions (`@ClanBot <command>`).
+  - Supports both `!cb <command>` and `!cb<command>` formats, as well as bot @mentions (`@ArtBot <command>`).
 - **Dedicated `/prefix` Command**:
   - Added `/prefix [new_prefix]` (and `!cb prefix [new_prefix]`) allowing administrators to quickly inspect or update the server prefix directly from chat.
 - **Config Window Deduplication**:
@@ -261,10 +261,10 @@ All notable changes, new features, and bug fixes for ClanBot across every releas
 
 ## [v1.0.20] - 2026-10-17
 ### ⚡ Instant Dual-Dispatch Command System & Ephemeral Help
-- **Instant Prefix Command Support (`!command` & `@ClanBot command`)**:
+- **Instant Prefix Command Support (`!command` & `@ArtBot command`)**:
   - Added support for prefix-based commands running alongside Discord slash commands.
   - Bypasses Discord's client caching and global command propagation delays, executing text commands instantly in chat upon deployment.
-  - Supports default prefix `!`, bot @mentions (`@ClanBot command`), and server-customizable prefixes via `/config`.
+  - Supports default prefix `!`, bot @mentions (`@ArtBot command`), and server-customizable prefixes via `/config`.
   - Built an internal `MessageCommandAdapter` that seamlessly translates Discord text messages to the application command runner with positional and subcommand parsing.
   - Added interactive "🗑️ Dismiss" buttons on prefix command replies that mimic ephemeral behavior.
 - **New Ephemeral `/help` & `!help` Command**:
