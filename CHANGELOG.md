@@ -4,6 +4,45 @@ All notable changes, new features, and bug fixes for ArtBot across every release
 
 ---
 
+## [v1.0.50] - 2026-11-04
+### ⚖️ Economy & ArtCasino Rebalance + Auto-Updater Fix
+- **Match & Economy Adjustments:**
+  - **FFA Win Reward:** `3.00 ArtCoins` per win
+  - **Team Win Reward:** `0.75 ArtCoins` per win
+  - **Brown Caps Conversion:** `600 Brown Caps = 1 ArtCoin`
+  - **Raffle Extra Tickets:** Default lowered from `10` to `3 ArtCoins` per extra ticket
+  - **Web Poker (`/poker`):** Default table buy-in lowered from `50` to `6 ArtCoins` (`1/2` blinds)
+- **ArtCasino Fixed Preset Wagers (Removed `All-In` & `Custom Wager`):**
+  - **American Blackjack:** Fixed preset wagers of `0.50`, `1.00`, or `3.00` ArtCoins (Max 1 Split per hand)
+  - **Penny Slots:** Fixed preset spins of `0.25`, `0.50`, `0.75`, or `1.00` ArtCoin (`7️⃣7️⃣7️⃣` pays `25x`, `💎💎💎` pays `12x`)
+  - **Solo Horse Derby:** Fixed preset wagers of `0.25`, `0.50`, `1.00`, or `2.00` ArtCoins at `3.6x` House Odds
+  - **Gamble Duels & Multiplayer Derby (PvP):** Fixed preset wagers of `0.50`, `1.00`, `3.00`, or `5.00` ArtCoins (Hard cap of `6.00 ArtCoins`)
+- **Release & Auto-Updater Pipeline:**
+  - Fixed version stamping before bundle compilation and synced private release notes directly to `clanbot-public`.
+  - Updated `applyUpdate()` so pre-compiled distribution archives are always extracted cleanly even on git-backed installs.
+
+---
+
+## [v1.0.49] - 2026-11-04
+### ⚖️ Economy & ArtCasino Rebalance
+- Rebalanced match win rewards, Brown Caps conversion rate, raffle ticket cost, and Web Poker default buy-in around the active server grinding baseline.
+- Replaced uncapped `All-In` and `Custom Wager` modals with fixed preset wager buttons across `/artcasino`.
+
+---
+
+## [v1.0.48] - 2026-11-04
+### 🛠️ Config Dashboard Overhaul, Blackjack Pair Splitting & Efficiency Cleanup
+- Decluttered `/config` and `/cfg` into a 5-category navigation hub with in-place view refreshes.
+- Added pair splitting (`✂️ Split`), smart dealer standing, and step-by-step dealer draw animations to Blackjack.
+- Restored Clan Treasury Brown Caps donation polling (`donation-rewards.ts`).
+
+---
+<!-- prior entries -->
+
+All notable changes, new features, and bug fixes for ArtBot across every release are documented here.
+
+---
+
 ## [v1.0.40] - 2026-10-22
 ### ✨ Chat AI Attribution Footer
 - Added subtle Discord subtext attribution (`-# researched/trained by ahbrakadabrah`) to AI ping responses.
