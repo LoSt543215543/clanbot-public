@@ -4,6 +4,16 @@ All notable changes, new features, and bug fixes for ArtBot across every release
 
 ---
 
+## [v1.0.53] - 2026-11-05
+### ⚡ Instant Blackjack Resolution & Card-Section Winner Badges
+- **Removed Blackjack Waiting-Time Animations (`src/commands/artcasino.ts`):**
+  - Removed all `setTimeout` delays and multi-step message edits during the Blackjack dealer's turn (`runAnimatedDealerTurn`).
+  - Dealer hole-card reveal, draws to `17+`, and final payout settlement now happen **instantly in a single button response**, completely eliminating message-edit delays and mid-turn freezes while keeping the full card-draw log (`🃏 Dealer Play: Revealed ... ➔ Drew ...`).
+- **Clear Winner / Outcome Badges in Card Section (`buildGameEmbed`):**
+  - Added `— 🏆 WINNER!`, `— ❌ LOST`, `— 💥 BUST (LOST)`, and `— 🤝 PUSH (TIE)` badges directly on the **Dealer's Hand** and **Your Hand** (and **Hand 1 / Hand 2** on split hands) headers so players can immediately see which side won right in the card display.
+
+---
+
 ## [v1.0.52] - 2026-11-05
 ### 🃏 1:1 Casino Blackjack Dealer & Split Aces Ruleset Alignment
 - **True S17 Dealer Draw Rules (`src/commands/artcasino.ts`):**
