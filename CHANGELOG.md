@@ -4,6 +4,17 @@ All notable changes, new features, and bug fixes for ArtBot across every release
 
 ---
 
+## [v1.0.52] - 2026-11-05
+### 🃏 1:1 Casino Blackjack Dealer & Split Aces Ruleset Alignment
+- **True S17 Dealer Draw Rules (`src/commands/artcasino.ts`):**
+  - Removed the early-standing check where the dealer stopped below `17` if its hand already exceeded the player's standing stiff total.
+  - The dealer now strictly **hits on 16 or below (`< 17`)** and **stands on all 17s (`>= 17`)** regardless of the player's standing total, restoring the full dealer bust chance when standing on 12–16.
+- **Standard Split Aces & Post-Split 21 Rules:**
+  - Splitting a pair of Aces (`A, A`) now deals **1 card to each Ace** and stands both hands automatically.
+  - A 2-card `21` achieved after a split now displays as `21` (paying `1:1` even money) rather than `21 (BLACKJACK!)`.
+
+---
+
 ## [v1.0.51] - 2026-11-05
 ### 🃏 Blackjack Anti-Freeze Overhaul & Rate-Limit Protection
 - **Eliminated Blackjack Table Freezes & Lockouts (`src/commands/artcasino.ts`):**
