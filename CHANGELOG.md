@@ -4,6 +4,16 @@ All notable changes, new features, and bug fixes for ArtBot across every release
 
 ---
 
+## [v1.0.51] - 2026-11-05
+### 🃏 Blackjack Anti-Freeze Overhaul & Rate-Limit Protection
+- **Eliminated Blackjack Table Freezes & Lockouts (`src/commands/artcasino.ts`):**
+  - Merged the player action note and dealer hole-card flip into the initial button acknowledgment (`btn.update`), cutting out a redundant message edit and `1.1s` delay on every hand.
+  - Prioritized interaction webhook edits (`btn.editReply`) over shared channel message edits (`message.edit`) during animated dealer draws to prevent hitting Discord's 5-edits-per-5-seconds channel rate limit.
+  - Added synchronous `dealer_turn` state locking and a per-session `inFlightSessions` concurrency guard so rapid double-clicks on **Hit**, **Stand**, **Double Down**, or **Split** cannot race or launch duplicate animations.
+  - Wrapped `runAnimatedDealerTurn()` in a guaranteed `try / finally` settlement block with final-frame retry and a 15-second `DEALER_TURN_STUCK_TIMEOUT_MS` watchdog so hands are always settled and removed from `activeGames` even if a Discord edit drops.
+
+---
+
 ## [v1.0.50] - 2026-11-04
 ### ⚖️ Economy & ArtCasino Rebalance + Auto-Updater Fix
 - **Match & Economy Adjustments:**
