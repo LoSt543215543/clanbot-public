@@ -4,6 +4,18 @@ All notable changes, new features, and bug fixes for ArtBot across every release
 
 ---
 
+## [v1.0.54] - 2026-11-06
+### 🤎 Brown Caps Donation Tracker & Token Hot-Reload Fixes
+- **Automatic `refreshToken` Hot-Reload & Direct API Fallback (`src/config.ts`, `src/services/headless-client.ts`):**
+  - Added `reloadRefreshTokenFromDisk()` to automatically pick up the freshest `token.json` or `.env` token across `data/`, `/home/lost54321/artbot/data`, and `/home/lost54321/clanbot/data` without requiring a bot restart.
+  - Updated `HeadlessOpenFrontClient.getValidJwt()` and `fetchClanDonations()` to hot-reload the cookie jar when `token.json` changes, fall back to direct Node `fetch` against `https://api.openfront.io` if headless Chromium fails, and log explicit HTTP status warnings.
+- **Removed Silent Economy Gate on Donation Payouts (`src/services/donation-rewards.ts`):**
+  - Removed the `economyLaunchedAt` gate inside `checkClanDonations()` so Brown Caps donations always convert and pay out whenever `donationRewardsEnabled !== false`.
+- **Fixed `donationTracking` State Persistence & Startup Check (`src/services/donation-rewards.ts`, `src/index.ts`):**
+  - Prevented `db.reloadIfChanged()` calls inside `db.getAccountByPublicId()` / `db.addArtcoins()` from overwriting `state.lastSeenId` and `state.donors` during donation payouts, and added an initial donation check 15s after bot startup.
+
+---
+
 ## [v1.0.53] - 2026-11-05
 ### ⚡ Instant Blackjack Resolution & Card-Section Winner Badges
 - **Removed Blackjack Waiting-Time Animations (`src/commands/artcasino.ts`):**
