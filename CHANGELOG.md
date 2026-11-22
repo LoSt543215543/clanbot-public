@@ -4,6 +4,21 @@ All notable changes, new features, and bug fixes for ArtBot across every release
 
 ---
 
+## [v1.0.55] - 2026-11-22
+### 🎰 ArtCasino Custom Bets, Modal Fixes & Donation Sync Protection
+- **ArtCasino Custom Bet Modals, All-In & Safety Guards (`src/commands/artcasino.ts`, `src/services/duel-service.ts`):**
+  - Restored `/gflash` registration in `src/commands-list.ts`, instant saved Brown Caps claim on `/link`, and All-In / Custom Bet (`0.25` step) wagering across ArtCasino.
+  - Added missing button & modal submit handlers for **Blackjack** (`casino_custom_` / `casino_modal_bjbet_`), **Gamble Duel** (`casino_duel_custom_` / `casino_modal_duelbet_`), and **Solo Derby** (`casino_derby_solo_custom_` / `casino_modal_soloderby_`), plus an explicit `isBlackjackAction` filter so non-Blackjack buttons never trigger the Blackjack expired-hand screen.
+  - Added the missing **All-In** and **Custom Bet** buttons to **Penny Slots** (`buildSlotsActionRows`), allowed custom Duel modal wagers above `MAX_DUEL_WAGER` (`allowCustom`), and enforced strict numeric (`/^\d+(\.\d{1,2})?$/`) modal wager parsing.
+  - Clamped modal titles and `TextInputBuilder` labels to Discord's 45-character limit across `showCustomWagerModal` and `casinopot.ts`, clamped button labels to 80 characters, and updated `updateMsg` / `runSoloDerbyRace` to safely handle both message modals and standalone modals.
+  - Added `soloDerbyInFlight` per-session locking to prevent double-click coin double-deduction and competing Solo Derby race loops.
+- **Donation Synchronization, Flash Drop Cleanup & Updater Fixes (`src/services/donation-rewards.ts`, `src/commands/gflash.ts`, `src/services/auto-updater.ts`, `.github/workflows/sync-to-clanbot.yml`):**
+  - Added a shared `withDonationLock` mutex and `diskCursor` (`id <= diskCursor`) deduplication across `checkClanDonations` and `claimPendingDonationsForUser` so overlapping ticks and `/link` claims cannot double-count ledger entries.
+  - Cleaned up `activeFlashDrops` entries on claim and expiration (`gflash.ts`) and clamped flash drop button labels to 80 characters.
+  - Fixed dot escaping in `getChangelogForVersion()` (`auto-updater.ts`) and skipped `sync-to-clanbot` runs when executing on `LoSt543215543/clanbot`.
+
+---
+
 ## [v1.0.54] - 2026-11-06
 ### 🤎 Brown Caps Donation Tracker & Token Hot-Reload Fixes
 - **Automatic `refreshToken` Hot-Reload & Direct API Fallback (`src/config.ts`, `src/services/headless-client.ts`):**
