@@ -4,6 +4,20 @@ All notable changes, new features, and bug fixes for ArtBot across every release
 
 ---
 
+## [v1.0.56] - 2026-11-22
+### 📝 Restart-Safe `#link-*` Application Interviews & Ticket Reliability Fixes
+- **Disk-Persisted `#link-*` Application Interviews (`src/data/database.ts`, `src/services/link-service.ts`, `src/index.ts`):**
+  - Replaced the in-memory `ticketChannel.awaitMessages()` interview loop with persistent `activeInterviews` session tracking in `Database` (`getActiveInterview`, `setActiveInterview`, `deleteActiveInterview`, `pruneStaleInterviews`), preserving progress across bot restarts, crashes, and reloads.
+  - Wired `handleInterviewMessage` into `Events.MessageCreate` with a per-channel `activeInterviewLocks` double-tap guard, attachment-only answer support, and persistent `cancel` support.
+- **Immediate Staff Controls, Permission Safety & Embed Limit Protection (`src/services/link-service.ts`, `src/utils/tickets.ts`, `src/commands/ticket.ts`):**
+  - Added the `Review Status` field and **Approve / Deny / Close with Reason** buttons directly onto `introEmbed` when a `#link-*` interview channel opens so staff always have action controls even mid-interview.
+  - Deduplicated and cache-validated staff `permissionOverwrites` role IDs in both `executeLinkFlow` and `ticket_btn_create` to prevent duplicate role IDs (`adminRoleId === reviewerRoleId`) or `Unknown Role` errors on deleted roles.
+  - Added `buildInterviewSummaryMessages` and `truncateText` to clamp field names (`<= 256`), field values (`<= 1024`), field counts (`<= 25`), and total embed characters (`<= 5500`), splitting long Q&As cleanly across overflow embeds with a plain-text + action-button fallback if embed dispatch fails.
+  - Replaced hardcoded `.spliceFields(2, 1, ...)` calls with `updateReviewStatusField` and ensured `activeInterviews` cleanup across `app_btn_approve_`, `app_btn_force_`, `app_btn_deny_`, `ticket_modal_close`, `/ticket close`, and `Events.ChannelDelete`.
+  - Added interaction error reply fallbacks for `clanreq_`, `ticket_`, and `app_` interactions plus a process-level `unhandledRejection` logger in `src/index.ts`.
+
+---
+
 ## [v1.0.55] - 2026-11-22
 ### 🎰 ArtCasino Custom Bets, Modal Fixes & Donation Sync Protection
 - **ArtCasino Custom Bet Modals, All-In & Safety Guards (`src/commands/artcasino.ts`, `src/services/duel-service.ts`):**
